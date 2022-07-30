@@ -3,15 +3,15 @@ package co.com.sofka.domain.secretarydomain.values;
 import co.com.sofka.domain.generic.Identity;
 import co.com.sofka.domain.teamdomain.values.TeamID;
 
-public class SecretaryID extends Identity {
-    public SecretaryID() {
+public class UserID extends Identity {
+    public UserID() {
 
     }
 
-    private SecretaryID(String id){
+    private UserID(String id){
         super(id);
     }
-    public static SecretaryID of(String id){
-        return new SecretaryID(id);
+    public static UserID of(String id){
+        return new UserID(id);
     }
 }
