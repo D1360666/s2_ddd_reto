@@ -1,7 +1,7 @@
 package co.com.sofka.domain.teamdomain.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.teamdomain.values.PlayerID;
+import co.com.sofka.domain.teamdomain.entity.Trainer;
 import co.com.sofka.domain.teamdomain.values.TrainerID;
 
 public class TrainerRemoved extends DomainEvent {
@@ -9,10 +9,10 @@ public class TrainerRemoved extends DomainEvent {
 
     public TrainerRemoved(TrainerID trainerID){
         super("sofka.domain.teamdomain.trainerremoved");
-        this.trainerID = trainerID;
+        this.trainerID=trainerID;
     }
 
-    public TrainerID getTrainerID(){
+    public TrainerID getTrainerID() {
         return trainerID;
     }
 }

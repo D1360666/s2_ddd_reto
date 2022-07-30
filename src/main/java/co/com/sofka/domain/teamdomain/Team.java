@@ -19,15 +19,22 @@ public class Team extends AggregateEvent<TeamID>{
     protected Trainer trainer;
     protected Name name;
 
-    public Team (TeamID entityId, Name name){
+    public Team (TeamID entityId, Name name, Trainer trainer){
         super(entityId);
-        appendChange(new TeamCreated(name)).apply();
+        appendChange(new TeamCreated(name, trainer)).apply();
     }
 
     private Team(TeamID entityId){
         super(entityId);
-        subscribe(new TeamChange(this.name));
+        subscribe(new TeamChange(this));
     }
+
+    public static Team from(TeamID teamID, List<DomainEvent> domainEvents){
+        Team team = new Team(teamID);
+        domainEvents.forEach(team::applyEvent);
+        return team;
+    }
+
 
     public void addTrainer(TrainerID trainerID, Name name, Address address, Phone phone, Ci ci){
         Objects.requireNonNull(trainerID);
@@ -42,9 +49,9 @@ public class Team extends AggregateEvent<TeamID>{
         appendChange(new PlayerAdded(playerID, name, ci, tutor)).apply();
     }
 
-    /*public void addTutorToPlayer(PlayerID playerID, Tutor tutor){
+    public void addTutorToPlayer(PlayerID playerID, Tutor tutor){
         appendChange(new TutorAddedToPlayer(playerID, tutor)).apply();
-    }*/
+    }
 
     public void updatedPlayer(PlayerID playerID, Name name, Ci ci, Tutor tutor){
         appendChange(new PlayerUpdated(playerID, name, ci, tutor)).apply();
@@ -54,17 +61,11 @@ public class Team extends AggregateEvent<TeamID>{
         appendChange(new TrainerUpdated(trainerID, name, address, phone, ci)).apply();
     }
 
-    public void removeTrainer(TrainerID trainerID){
-        appendChange(new TrainerRemoved(trainerID)).apply();
-    }
-
     public void removePlayer(PlayerID playerID){
         appendChange(new PlayerRemoved(playerID)).apply();
     }
 
-    public static Team from(TeamID teamID, List<DomainEvent> domainEvents){
-        Team team = new Team(teamID);
-        domainEvents.forEach(team::applyEvent);
-        return team;
-    }
+    public void removeTrainer(TrainerID trainerID){appendChange(new TrainerRemoved(trainerID)).apply();}
+
+
 }
