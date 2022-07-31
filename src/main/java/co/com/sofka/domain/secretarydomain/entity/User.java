@@ -5,7 +5,7 @@ import co.com.sofka.domain.secretarydomain.values.Address;
 import co.com.sofka.domain.secretarydomain.values.Name;
 import co.com.sofka.domain.secretarydomain.values.Phone;
 import co.com.sofka.domain.secretarydomain.values.UserID;
-import co.com.sofka.domain.teamdomain.entity.Player;
+
 
 import java.util.Objects;
 

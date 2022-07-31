@@ -10,10 +10,10 @@ public class Name implements ValueObject<String> {
     public Name(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The Name can't be empty"));
+            throw new IllegalArgumentException(("Name can't be empty"));
         }
         if(this.value.length()>50){
-            throw new IllegalArgumentException(("The Name can't be longer than 50 characters"));
+            throw new IllegalArgumentException(("Name can't be longer than 50 characters"));
         }
     }
 

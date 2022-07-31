@@ -10,10 +10,10 @@ public class Description implements ValueObject<String> {
     public Description(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The Name can't be empty"));
+            throw new IllegalArgumentException(("Description can't be empty"));
         }
         if(this.value.length()>100){
-            throw new IllegalArgumentException(("The Name can't be longer than 50 characters"));
+            throw new IllegalArgumentException(("Description can't be longer than 100 characters"));
         }
     }
 

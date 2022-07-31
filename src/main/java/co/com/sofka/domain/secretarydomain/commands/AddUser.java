@@ -1,24 +1,22 @@
-package co.com.sofka.domain.secretarydomain.events;
+package co.com.sofka.domain.secretarydomain.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import co.com.sofka.domain.secretarydomain.values.Address;
 import co.com.sofka.domain.secretarydomain.values.Name;
 import co.com.sofka.domain.secretarydomain.values.Phone;
 import co.com.sofka.domain.secretarydomain.values.UserID;
 
-public class UserAdded extends DomainEvent {
-    private UserID userID;
-    private Name name;
-    private Address address;
-    private Phone phone;
+public class AddUser extends Command {
+    private final UserID userID;
+    private final Name name;
+    private final Address address;
+    private final Phone phone;
 
-    public UserAdded(UserID userID, Name name, Address address, Phone phone){
-        super("sofka.domain.secretarydomain.useradded");
+    public AddUser(UserID userID, Name name, Address address, Phone phone) {
         this.userID = userID;
         this.name = name;
         this.address = address;
         this.phone = phone;
-
     }
 
     public UserID getUserID() {

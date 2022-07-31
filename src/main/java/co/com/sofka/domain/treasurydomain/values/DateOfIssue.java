@@ -16,10 +16,10 @@ public class DateOfIssue implements ValueObject<String> {
         try{
             date = LocalDate.of(year, month, day);
             if(date.isAfter(LocalDate.now())){
-                throw new IllegalArgumentException("No valid the date of birth");
+                throw new IllegalArgumentException("Invalid date of Issue");
             }
         }catch(DateTimeException e){
-            throw new IllegalArgumentException("No valid the date of birth");
+            throw new IllegalArgumentException("Invalid date of Issue");
         }
         format = generateFormat();
     }

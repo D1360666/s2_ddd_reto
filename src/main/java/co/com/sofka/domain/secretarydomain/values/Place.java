@@ -10,10 +10,10 @@ public class Place implements ValueObject<String> {
     public Place(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The Name can't be empty"));
+            throw new IllegalArgumentException(("Place can't be empty"));
         }
-        if(this.value.length()>100){
-            throw new IllegalArgumentException(("The Name can't be longer than 50 characters"));
+        if(this.value.length()>30){
+            throw new IllegalArgumentException(("Place can't be longer than 30 characters"));
         }
     }
 

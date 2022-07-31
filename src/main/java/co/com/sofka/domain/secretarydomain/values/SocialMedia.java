@@ -10,10 +10,10 @@ public class SocialMedia implements ValueObject<String> {
     public SocialMedia(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The Name can't be empty"));
+            throw new IllegalArgumentException(("SocialMedia can't be empty"));
         }
         if(this.value.length()>100){
-            throw new IllegalArgumentException(("The Name can't be longer than 50 characters"));
+            throw new IllegalArgumentException(("SocialMedia can't be longer than 30 characters"));
         }
     }
 

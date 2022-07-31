@@ -15,10 +15,10 @@ public class DateOfEvent implements ValueObject<String> {
         try{
             date = LocalDate.of(year, month, day);
             if(date.isAfter(LocalDate.now())){
-                throw new IllegalArgumentException("No valid the date of birth");
+                throw new IllegalArgumentException("Invalid Date of event");
             }
         }catch(DateTimeException e){
-            throw new IllegalArgumentException("No valid the date of birth");
+            throw new IllegalArgumentException("Invalid Date of event");
         }
         format = generateFormat();
     }

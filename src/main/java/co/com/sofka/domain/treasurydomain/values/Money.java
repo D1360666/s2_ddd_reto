@@ -9,7 +9,7 @@ public class Money {
         this.value = Objects.requireNonNull(value);
 
         if(this.value==0){
-            throw new IllegalArgumentException("Error!, Incorrect Value");
+            throw new IllegalArgumentException("Error!,  Value can't be cero");
         }
 
     }

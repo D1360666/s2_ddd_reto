@@ -10,10 +10,10 @@ public class Phone implements ValueObject<String> {
     public Phone(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The phone can't be empty"));
+            throw new IllegalArgumentException(("Phone can't be empty"));
         }
         if(this.value.length()>20){
-            throw new IllegalArgumentException(("The phone can't be longer than 20 characters"));
+            throw new IllegalArgumentException(("Phone can't be longer than 20 characters"));
         }
     }
 

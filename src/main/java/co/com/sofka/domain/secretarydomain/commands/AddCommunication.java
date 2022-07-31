@@ -1,6 +1,5 @@
-package co.com.sofka.domain.secretarydomain.events;
+package co.com.sofka.domain.secretarydomain.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.secretarydomain.entity.Calendar;
 import co.com.sofka.domain.secretarydomain.values.CommunicationID;
 import co.com.sofka.domain.secretarydomain.values.DateOfCommunication;
@@ -9,23 +8,21 @@ import co.com.sofka.domain.secretarydomain.values.SocialMedia;
 
 import javax.sound.midi.Receiver;
 
-public class CommunicationUpdated extends DomainEvent {
-    private CommunicationID communicationID;
-    private Description description;
-    private DateOfCommunication dateOfCommunication;
-    private Calendar calendar;
-    private SocialMedia socialMedia;
-    private Receiver receiver;
+public class AddCommunication {
+    private final CommunicationID communicationID;
+    private final Description description;
+    private final DateOfCommunication dateOfCommunication;
+    private final Calendar calendar;
+    private final SocialMedia socialMedia;
+    private final Receiver receiver;
 
-    public CommunicationUpdated(CommunicationID communicationID, Description description, DateOfCommunication dateOfCommunication, Calendar calendar, SocialMedia socialMedia, Receiver receiver){
-        super("sofka.domain.secretarydomain.communicationupdated");
+    public AddCommunication(CommunicationID communicationID, Description description, DateOfCommunication dateOfCommunication, Calendar calendar, SocialMedia socialMedia, Receiver receiver) {
         this.communicationID = communicationID;
         this.description = description;
         this.dateOfCommunication = dateOfCommunication;
         this.calendar = calendar;
         this.socialMedia = socialMedia;
         this.receiver = receiver;
-
     }
 
     public CommunicationID getCommunicationID() {

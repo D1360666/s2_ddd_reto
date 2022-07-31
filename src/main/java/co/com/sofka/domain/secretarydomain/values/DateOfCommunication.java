@@ -15,10 +15,10 @@ public class DateOfCommunication implements ValueObject<String> {
         try{
             date = LocalDate.of(year, month, day);
             if(date.isAfter(LocalDate.now())){
-                throw new IllegalArgumentException("No valid the date of birth");
+                throw new IllegalArgumentException("Invalid date of message");
             }
         }catch(DateTimeException e){
-            throw new IllegalArgumentException("No valid the date of birth");
+            throw new IllegalArgumentException("Invalid date of message");
         }
         format = generateFormat();
     }

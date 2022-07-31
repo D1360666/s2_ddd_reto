@@ -13,7 +13,7 @@ public class UserUpdated extends DomainEvent {
     private Phone phone;
 
     public UserUpdated(UserID userID, Name name, Address address, Phone phone){
-        super("sofka.domain.secretarydomain.usercreated");
+        super("sofka.domain.secretarydomain.userupdated");
         this.userID = userID;
         this.name = name;
         this.address = address;

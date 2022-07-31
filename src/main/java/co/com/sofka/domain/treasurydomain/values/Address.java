@@ -11,10 +11,10 @@ public class Address implements ValueObject<String> {
     public Address(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The address can't be empty"));
+            throw new IllegalArgumentException(("Address can't be empty"));
         }
         if(this.value.length()>50){
-            throw new IllegalArgumentException(("The address can't be longer than 50 characters"));
+            throw new IllegalArgumentException(("Address can't be longer than 50 characters"));
         }
     }
 
