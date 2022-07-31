@@ -1,4 +1,4 @@
 package co.com.sofka.domain.secretarydomain.values;
 
-public class OneDate {
+public class DateOfCommunication {
 }

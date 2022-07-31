@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+
 public class Address implements ValueObject<String> {
     private final String value;
 

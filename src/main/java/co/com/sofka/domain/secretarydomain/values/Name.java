@@ -4,16 +4,16 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Phone implements ValueObject<String> {
+public class Name implements ValueObject<String> {
     private final String value;
 
-    public Phone(String value){
+    public Name(String value){
         this.value= Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException(("The phone can't be empty"));
+            throw new IllegalArgumentException(("The Name can't be empty"));
         }
-        if(this.value.length()>20){
-            throw new IllegalArgumentException(("The phone can't be longer than 20 characters"));
+        if(this.value.length()>50){
+            throw new IllegalArgumentException(("The Name can't be longer than 50 characters"));
         }
     }
 
@@ -24,9 +24,9 @@ public class Phone implements ValueObject<String> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Phone)) return false;
-        Phone phone = (Phone) o;
-        return Objects.equals(value, phone.value);
+        if (!(o instanceof Name)) return false;
+        Name name = (Name) o;
+        return Objects.equals(value, name.value);
     }
 
     @Override

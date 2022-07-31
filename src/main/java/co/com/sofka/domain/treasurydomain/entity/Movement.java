@@ -11,11 +11,11 @@ public class Movement extends Entity<MovementID> {
     private MovementID movementID;
     private DateOfIssue dateOfIssue;
     private Reason reason;
-    private Amount amount;
+    private Money amount;
     private TypeOfMovement typeOfMovement;
     private Account account;
 
-    public Movement(MovementID movementID, DateOfIssue dateOfIssue, Reason reason, Amount amount, TypeOfMovement typeOfMovement, Account account){
+    public Movement(MovementID movementID, DateOfIssue dateOfIssue, Reason reason, Money amount, TypeOfMovement typeOfMovement, Account account){
         super(movementID);
         this.dateOfIssue= dateOfIssue;
         this.reason = reason;
@@ -27,7 +27,7 @@ public class Movement extends Entity<MovementID> {
 
     public void updateDateOfIssue(DateOfIssue dateOfIssue){this.dateOfIssue= Objects.requireNonNull(dateOfIssue);}
     public void updateReason(Reason reason){this.reason= Objects.requireNonNull(reason);}
-    public void updateAmount(Amount amount){this.amount= Objects.requireNonNull(amount);}
+    public void updateAmount(Money amount){this.amount= Objects.requireNonNull(amount);}
     public void updateTypeOfMovement(TypeOfMovement typeOfMovement){this.typeOfMovement= Objects.requireNonNull(typeOfMovement);}
     public void updateAccount(Account account){this.account= Objects.requireNonNull(account);}
 
@@ -40,7 +40,7 @@ public class Movement extends Entity<MovementID> {
         return reason;
     }
 
-    public Amount amount() {
+    public Money amount() {
         return amount;
     }
 
