@@ -7,11 +7,8 @@ import co.com.sofka.domain.secretarydomain.entity.Communication;
 import co.com.sofka.domain.secretarydomain.entity.User;
 import co.com.sofka.domain.secretarydomain.events.*;
 import co.com.sofka.domain.secretarydomain.values.*;
-import co.com.sofka.domain.treasurydomain.Treasury;
-import co.com.sofka.domain.treasurydomain.entity.Treasurer;
-import co.com.sofka.domain.treasurydomain.events.TreasuryCreated;
-import co.com.sofka.domain.treasurydomain.values.Name;
-import co.com.sofka.domain.treasurydomain.values.TreasuryID;
+import co.com.sofka.domain.secretarydomain.values.Name;
+
 
 import javax.sound.midi.Receiver;
 import java.util.List;
@@ -40,7 +37,7 @@ public class Secretary extends AggregateEvent<SecretaryID> {
         return listCommunications;
     }
 
-    public Secretary (SecretaryID entityId, Description description, User user){
+    public Secretary (SecretaryID entityId){
         super(entityId);
         appendChange(new SecretaryCreated(description, user)).apply();
     }

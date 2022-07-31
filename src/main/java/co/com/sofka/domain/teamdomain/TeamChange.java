@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 public class TeamChange extends EventChange {
     /***
-     * Cpmstructor que carga tpdps ñps eventos al crear un nuevo Equipo
+     * Cpmstructor que carga todps ñps eventos al crear un nuevo Equipo
      * @param team
      */
     public TeamChange(Team team){

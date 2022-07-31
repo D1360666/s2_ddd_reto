@@ -19,7 +19,7 @@ public class Communication extends Entity<CommunicationID> {
     private SocialMedia socialMedia;
     private Receiver receiver;
 
-    public Communication(CommunicationID entityId, CommunicationID communicationID, Description description, DateOfCommunication dateOfCommunication, Calendar calendar, SocialMedia socialMedia, Receiver receiver) {
+    public Communication(CommunicationID entityId,  Description description, DateOfCommunication dateOfCommunication, Calendar calendar, SocialMedia socialMedia, Receiver receiver) {
         super(entityId);
         this.communicationID = communicationID;
         this.description = description;
@@ -51,7 +51,7 @@ public class Communication extends Entity<CommunicationID> {
         return socialMedia;
     }
 
-    public Receiver getReceiver() {
+    public Receiver receiver() {
         return receiver;
     }
 }

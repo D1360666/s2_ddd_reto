@@ -9,7 +9,7 @@ public class TeamCreated extends DomainEvent {
     private final Trainer trainer;
 
     public TeamCreated(Name name, Trainer trainer){
-        super("domain.teamdomain.teamcreated");
+        super("sofka.domain.teamdomain.teamcreated");
         this.name=name;
         this.trainer=trainer;
     }

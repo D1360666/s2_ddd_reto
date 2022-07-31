@@ -15,7 +15,7 @@ public class User extends Entity<UserID> {
     private Address address;
     private Phone phone;
 
-    public User(UserID entityId, UserID userID, Name name, Address address, Phone phone) {
+    public User(UserID entityId, Name name, Address address, Phone phone) {
         super(entityId);
         this.name = name;
         this.address = address;

@@ -16,7 +16,7 @@ public class Calendar extends Entity<CalendarID> {
     private DateOfEvent dateOfEvent;
     private Place place;
 
-    public Calendar(CalendarID entityId, CalendarID calendarID, Description description, DateOfEvent dateOfEvent, Place place) {
+    public Calendar(CalendarID entityId, Description description, DateOfEvent dateOfEvent, Place place) {
         super(entityId);
         this.description = description;
         this.dateOfEvent = dateOfEvent;
@@ -26,4 +26,16 @@ public class Calendar extends Entity<CalendarID> {
     public void updateDescription(Description description){this.description= Objects.requireNonNull(description);}
     public void updateDateOfEvent(DateOfEvent dateOfEvent){this.dateOfEvent= Objects.requireNonNull(dateOfEvent);}
     public void updatePlace(Place place){this.place= Objects.requireNonNull(place);}
+
+    public Description description() {
+        return description;
+    }
+
+    public DateOfEvent dateOfEvent() {
+        return dateOfEvent;
+    }
+
+    public Place place() {
+        return place;
+    }
 }
