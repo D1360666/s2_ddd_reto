@@ -7,7 +7,7 @@ public class TeamID extends Identity {
 
     }
 
-    private TeamID(String id){
+    public TeamID(String id){
         super(id);
     }
     public static TeamID of(String id){

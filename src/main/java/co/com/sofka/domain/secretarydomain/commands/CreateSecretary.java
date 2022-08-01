@@ -16,15 +16,15 @@ public class CreateSecretary extends Command {
         this.user = user;
     }
 
-    public SecretaryID getSecretaryID() {
-        return secretaryID;
-    }
-
     public Description getDescription() {
         return description;
     }
 
     public User getUser() {
         return user;
+    }
+
+    public SecretaryID getSecretaryID() {
+        return secretaryID;
     }
 }

@@ -8,7 +8,7 @@ public class UserID extends Identity {
 
     }
 
-    private UserID(String id){
+    public UserID(String id){
         super(id);
     }
     public static UserID of(String id){

@@ -7,7 +7,7 @@ public class TrainerID extends Identity {
 
     }
 
-    private TrainerID(String id){
+    public TrainerID(String id){
         super(id);
     }
     public static TrainerID of(String id){
