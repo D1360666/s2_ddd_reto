@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Secretary extends AggregateEvent<SecretaryID> {
+
     protected Description description;
     protected User user;
     protected Set<Calendar> listCalendar;
@@ -37,9 +38,16 @@ public class Secretary extends AggregateEvent<SecretaryID> {
         return listCommunications;
     }
 
-    public Secretary (SecretaryID entityId){
+
+
+    public Secretary (SecretaryID entityId, Description description, User user){
         super(entityId);
         appendChange(new SecretaryCreated(description, user)).apply();
+    }
+
+    private Secretary(SecretaryID entityID){
+        super(entityID);
+        subscribe(new SecretaryChange(this));
     }
 
     public static Secretary from(SecretaryID secretaryID, List<DomainEvent> domainEvents){
