@@ -55,7 +55,7 @@ public class TeamChange extends EventChange {
         });
 
         apply((TrainerCreated event) -> {
-           // Trainer.trainerID = event.getTrainerID();
+            Trainer.trainerID = event.getTrainerID();
             Trainer.name = event.getName();
             Trainer.address = event.getAddress();
             Trainer.phone = event.getPhone();

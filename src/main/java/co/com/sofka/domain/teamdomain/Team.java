@@ -23,6 +23,7 @@ public class Team extends AggregateEvent<TeamID>{
     protected static Phone phone;
     protected static TrainerID trainerID;
     protected static Ci ci;
+    protected static TutorID tutorID;
 
     public Team (TeamID entityId, Name name){
         super(entityId);
@@ -55,6 +56,15 @@ public class Team extends AggregateEvent<TeamID>{
         this.ci = Objects.requireNonNull(ci);
         appendChange(new PlayerCreated(name, ci)).apply();
     }
+
+    public void createTutor(TutorID tutorID, Name name, Ci ci) {
+        this.tutorID=Objects.requireNonNull(tutorID);
+        this.name=Objects.requireNonNull(name);
+        this.ci=Objects.requireNonNull(ci);
+        appendChange(new TutorCreated(name, ci));
+
+    }
+
     public void addPlayer(Player player){
         this.playerList.add(player);
     }
@@ -80,5 +90,6 @@ public class Team extends AggregateEvent<TeamID>{
     public void TeamCreated(Name name) {
         appendChange(new TeamCreated(name)).apply();
     }
+
 
 }

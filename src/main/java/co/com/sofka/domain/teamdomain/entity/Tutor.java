@@ -8,12 +8,13 @@ import co.com.sofka.domain.teamdomain.values.TutorID;
 import java.util.Objects;
 
 public class Tutor extends Entity<TutorID> {
-    private TutorID tutorID;
-    private Name name;
-    private Ci ci;
+    private static TutorID tutorID;
+    private static Name name;
+    private static Ci ci;
 
     public Tutor(TutorID tutorID, Name name, Ci ci){
         super(tutorID);
+        this.tutorID = tutorID;
         this.name=name;
         this.ci=ci;
     }

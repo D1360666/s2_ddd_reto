@@ -40,7 +40,7 @@ public class PlayerCreatedUseCaseTest {
         PlayerID playerID= PlayerID.of("Player1");
         Name name = new Name("NombrePlayer");
         Ci ci = new Ci(61861658L);
-        //Player player = new Player(playerID);
+
         TeamID teamID= TeamID.of("Categoria 2014");
         var command = new CreatePlayer(playerID, name, ci, teamID);
 
