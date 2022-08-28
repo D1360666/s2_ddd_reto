@@ -15,17 +15,13 @@ public class TeamChange extends EventChange {
     public TeamChange(Team team){
         apply((TeamCreated event)-> {
             team.name = event.getName();
-            team.playerList= new HashSet<>();
-            team.tutorList=new HashSet<>();
-            team.trainer=event.getTrainer();
-
         });
 
         /***
          * Eventos capturados generados en el Agregado Root
          */
 
-        apply((TrainerAdded event)->{
+    /*    apply((TrainerCreated event)->{
             Trainer trainer=new Trainer(event.getTrainerID(), event.getName(),event.getAddress(), event.getPhone(),event.getCi());
             team.addTrainer(trainer.identity(), trainer.name(), trainer.address(),trainer.phone(), trainer.ci());
         });
@@ -35,20 +31,35 @@ public class TeamChange extends EventChange {
             team.addTrainer(trainer.identity(), trainer.name(), trainer.address(),trainer.phone(), trainer.ci());
         });
 
-        apply((PlayerAdded event)-> {
-            Player player = new Player(event.getPlayerID(), event.getName(),event.getCi(), event.getTutor());
-            team.addPlayer(player.identity(), player.name(), player.ci(), player.tutor());
+        apply((PlayerCreated event)-> {
+            Player player = new Player(event.getPlayerID(), event.getName(),event.getCi());
+            team.createPlayer(player.identity(), player.name(), player.ci());
         });
 
         apply((PlayerUpdated event)-> {
-            Player player = new Player(event.getPlayerID(), event.getName(),event.getCi(), event.getTutor());
-            team.addPlayer(player.identity(), player.name(), player.ci(), player.tutor());
+            Player player = new Player(event.getPlayerID(), event.getName(),event.getCi());
+            //team.addPlayer();
+            team.updatedPlayer(player.identity(), player.name(), player.ci());
         });
 
         apply((PlayerRemoved event)->{
 
             team.playerList.removeIf(player -> player.identity().equals(event.getPlayerID()));
         });
+*/
 
+        apply((PlayerCreated event)->{
+            Player.playerID = event.getPlayerID();
+            Player.name = event.getName();
+            Player.ci = event.getCi();
+        });
+
+        apply((TrainerCreated event) -> {
+           // Trainer.trainerID = event.getTrainerID();
+            Trainer.name = event.getName();
+            Trainer.address = event.getAddress();
+            Trainer.phone = event.getPhone();
+            Trainer.ci = event.getCi();
+        });
     }
 }

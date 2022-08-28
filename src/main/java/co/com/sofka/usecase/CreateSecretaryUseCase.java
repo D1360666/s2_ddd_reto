@@ -9,9 +9,15 @@ import co.com.sofka.domain.secretarydomain.commands.CreateSecretary;
 public class CreateSecretaryUseCase extends UseCase<RequestCommand<CreateSecretary>, ResponseEvents> {
 
     @Override
-    public void executeUseCase(RequestCommand<CreateSecretary>createTeamRequestCommand){
+    /*public void executeUseCase(RequestCommand<CreateSecretary>createTeamRequestCommand){
         var command = createTeamRequestCommand.getCommand();
         var secretary = new Secretary(command.getSecretaryID(),command.getDescription(),command.getUser());
+
+        emit().onResponse(new ResponseEvents(secretary.getUncommittedChanges()));
+    }*/
+    public void executeUseCase(RequestCommand<CreateSecretary>createSecretaryRequestCommand){
+        var command = createSecretaryRequestCommand.getCommand();
+        var secretary = new Secretary(command.getSecretaryID(), command.getDescription(), command.getUser());
 
         emit().onResponse(new ResponseEvents(secretary.getUncommittedChanges()));
     }

@@ -5,18 +5,19 @@ import co.com.sofka.domain.teamdomain.entity.Tutor;
 import co.com.sofka.domain.teamdomain.values.Ci;
 import co.com.sofka.domain.teamdomain.values.Name;
 import co.com.sofka.domain.teamdomain.values.PlayerID;
+import co.com.sofka.domain.teamdomain.values.TeamID;
 
-public class AddPlayer extends Command {
+public class CreatePlayer extends Command {
     private final PlayerID playerID;
     private final Name name;
     private final Ci ci;
-    private final Tutor tutor;
+    private final TeamID teamID;
 
-    public AddPlayer(PlayerID playerID, Name name, Ci ci, Tutor tutor) {
+    public CreatePlayer(PlayerID playerID, Name name, Ci ci, TeamID teamID) {
         this.playerID = playerID;
         this.name = name;
         this.ci = ci;
-        this.tutor = tutor;
+        this.teamID = teamID;
     }
 
     public PlayerID getPlayerID() {
@@ -31,8 +32,8 @@ public class AddPlayer extends Command {
         return ci;
     }
 
-    public Tutor getTutor() {
-        return tutor;
+    public TeamID getTeamID() {
+        return teamID;
     }
 }
 

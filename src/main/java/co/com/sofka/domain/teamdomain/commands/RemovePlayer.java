@@ -1,7 +1,7 @@
 package co.com.sofka.domain.teamdomain.commands;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.teamdomain.values.PlayerID;
+import co.com.sofka.domain.teamdomain.values.*;
 
 public class RemovePlayer extends Command {
 

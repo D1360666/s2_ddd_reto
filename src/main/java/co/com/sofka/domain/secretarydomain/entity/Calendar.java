@@ -1,11 +1,7 @@
 package co.com.sofka.domain.secretarydomain.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.secretarydomain.values.CalendarID;
-import co.com.sofka.domain.secretarydomain.values.DateOfEvent;
-import co.com.sofka.domain.secretarydomain.values.Description;
-import co.com.sofka.domain.secretarydomain.values.Place;
-import co.com.sofka.domain.teamdomain.entity.Player;
+import co.com.sofka.domain.secretarydomain.values.*;
 
 import java.util.Date;
 import java.util.Objects;

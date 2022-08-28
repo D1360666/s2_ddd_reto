@@ -1,19 +1,18 @@
 package co.com.sofka.domain.teamdomain.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.teamdomain.entity.Tutor;
 import co.com.sofka.domain.teamdomain.values.*;
 
-public class TrainerAdded extends DomainEvent {
-    private TrainerID trainerID;
-    private Name name;
-    private Ci ci;
-    private Address address;
-    private Phone phone;
+public class TrainerCreated extends DomainEvent {
+   // private final TrainerID trainerID;
+    private final Name name;
+    private final Ci ci;
+    private final Address address;
+    private final Phone phone;
 
-    public TrainerAdded(TrainerID trainerID, Name name, Address address, Phone phone, Ci ci){
-        super("sofka.domain.teamdomain.traineradded");
-        this.trainerID = trainerID;
+    public TrainerCreated(Name name, Address address, Phone phone, Ci ci){
+        super("sofka.domain.teamdomain.trainercreated");
+        //this.trainerID = trainerID;
         this.name = name;
         this.ci = ci;
         this.address = address;
@@ -21,9 +20,9 @@ public class TrainerAdded extends DomainEvent {
 
     }
 
-    public TrainerID getTrainerID(){
-        return trainerID;
-    }
+   // public TrainerID getTrainerID(){
+      //  return trainerID;
+   // }
 
     public Name getName(){
         return name;
