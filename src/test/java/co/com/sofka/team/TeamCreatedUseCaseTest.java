@@ -1,4 +1,4 @@
-package co.com.sofka;
+package co.com.sofka.team;
 import co.com.sofka.domain.teamdomain.events.TeamCreated;
 import co.com.sofka.domain.teamdomain.Team;
 import co.com.sofka.domain.teamdomain.values.TeamID;

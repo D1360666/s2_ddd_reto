@@ -6,23 +6,19 @@ import co.com.sofka.domain.secretarydomain.values.DateOfEvent;
 import co.com.sofka.domain.secretarydomain.values.Description;
 import co.com.sofka.domain.secretarydomain.values.Place;
 
-public class CalendarAdded extends DomainEvent {
-    private CalendarID calendarID;
-    private Description description;
-    private DateOfEvent dateOfEvent;
-    private Place place;
+public class CalendarCreated extends DomainEvent {
+    private final Description description;
+    private final DateOfEvent dateOfEvent;
+    private final Place place;
 
-    public CalendarAdded(CalendarID calendarID, Description description, DateOfEvent dateOfEvent, Place place){
+    public CalendarCreated(Description description, DateOfEvent dateOfEvent, Place place){
         super("sofka.domain.secretarydomain.calendaradded");
-        this.calendarID = calendarID;
         this.description = description;
         this.dateOfEvent= dateOfEvent;
         this.place = place;
     }
 
-    public CalendarID getCalendarID() {
-        return calendarID;
-    }
+
 
     public Description getDescription() {
         return description;
@@ -34,5 +30,9 @@ public class CalendarAdded extends DomainEvent {
 
     public Place getPlace() {
         return place;
+    }
+
+    public CalendarID getCalendarID() {
+        return null;
     }
 }

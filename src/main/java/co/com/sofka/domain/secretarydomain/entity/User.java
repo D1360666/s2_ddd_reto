@@ -10,10 +10,11 @@ import co.com.sofka.domain.secretarydomain.values.UserID;
 import java.util.Objects;
 
 public class User extends Entity<UserID> {
-    private UserID userID;
-    private Name name;
-    private Address address;
-    private Phone phone;
+
+    public static UserID userID;
+    public static Address address;
+    public static Phone phone;
+    public static Name name;
 
     public User(UserID entityId, Name name, Address address, Phone phone) {
         super(entityId);

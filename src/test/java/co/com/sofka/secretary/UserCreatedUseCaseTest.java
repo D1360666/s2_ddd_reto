@@ -1,64 +1,65 @@
-package co.com.sofka;
+package co.com.sofka.secretary;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.teamdomain.commands.CreateTrainer;
-import co.com.sofka.domain.teamdomain.events.TrainerCreated;
-import co.com.sofka.domain.teamdomain.values.*;
-import co.com.sofka.usecase.Team.CreateTrainerUseCase;
+import co.com.sofka.domain.secretarydomain.commands.CreateUser;
+import co.com.sofka.domain.secretarydomain.events.UserCreated;
+import co.com.sofka.domain.secretarydomain.values.*;
+import co.com.sofka.usecase.Secretary.CreateUserUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TrainerCreatedUseCaseTest {
+public class UserCreatedUseCaseTest {
     @InjectMocks
-    private CreateTrainerUseCase useCase;
+    private CreateUserUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
     void executeUseCase(){
-        TrainerID trainerID= TrainerID.of("Trainer1");
-        Name name = new Name("NombreTrainer");
+        UserID userID= UserID.of("idUser");
+        Name name = new Name("UserName");
         Address address = new Address("Hugo Caballero 1969");
         Phone phone = new Phone("+598 91961445");
-        Ci ci = new Ci(61861658L);
 
-        TeamID teamID= TeamID.of("Categoria 2014");
-        var command = new CreateTrainer(trainerID, name, address, phone, ci, teamID);
 
-        when(repository.getEventsBy("Categoria 2014")).thenReturn(history());
+        SecretaryID secretaryID= SecretaryID.of("Secretaria 2014");
+        var command = new CreateUser(userID, name, address, phone, secretaryID);
+
+        when(repository.getEventsBy("Secretaria 2014")).thenReturn(history());
 
         useCase.addRepository(repository);
 
         var events = UseCaseHandler.getInstance()
-                .setIdentifyExecutor(command.getTeamID().value())
+                .setIdentifyExecutor(command.getSecretaryID().value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (TrainerCreated) events.get(0);
-        assertEquals("NombreTrainer", event.getName().value());
-        Mockito.verify(repository).getEventsBy("Categoria 2014");
+        var event = (UserCreated) events.get(0);
+        assertEquals("UserName", event.getName().value());
+        Mockito.verify(repository).getEventsBy("Secretaria 2014");
     }
     private List<DomainEvent> history() {
-        TeamID teamID = TeamID.of("Cateagoria 2014");
-        Name name = new Name("NombreTrainer");
-        Ci ci = new Ci(61861658L);
+        SecretaryID secretaryID = SecretaryID.of("Secretaria 2014");
+        Name name = new Name("UserName");
         Address address = new Address("Hugo Caballero 1969");
         Phone phone = new Phone("+598 91961445");
-        var event = new TrainerCreated(name, address, phone, ci);
-        event.setAggregateRootId(teamID.value());
+        var event = new UserCreated(name, address, phone);
+        event.setAggregateRootId(secretaryID.value());
         return List.of(event);
     }
 }

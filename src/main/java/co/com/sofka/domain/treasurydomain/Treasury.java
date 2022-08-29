@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.teamdomain.entity.Player;
 import co.com.sofka.domain.teamdomain.entity.Trainer;
 import co.com.sofka.domain.teamdomain.events.TeamCreated;
+import co.com.sofka.domain.teamdomain.events.TrainerCreated;
 import co.com.sofka.domain.teamdomain.values.TeamID;
 import co.com.sofka.domain.treasurydomain.entity.Account;
 import co.com.sofka.domain.treasurydomain.entity.Treasurer;
@@ -17,10 +18,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Treasury extends AggregateEvent<TreasuryID> {
-    protected Name name;
-    protected Treasurer treasurer;
-    protected Set<Account> AccoutList;
-    protected Set<Player> PlayerList;
+    protected static Name name;
+    protected static Treasurer treasurer;
+    protected static Set<Account> AccoutList;
+    protected static Set<Player> PlayerList;
 
     public Name getName() {
         return name;
@@ -38,14 +39,15 @@ public class Treasury extends AggregateEvent<TreasuryID> {
         return PlayerList;
     }
 
-    public Treasury (TreasuryID entityId, Name name, Treasurer treasurer){
+    public Treasury (TreasuryID entityId, Name name){
         super(entityId);
-        appendChange(new TreasuryCreated(name, treasurer)).apply();
+        appendChange(new TreasuryCreated(name)).apply();
     }
 
     private Treasury(TreasuryID treasuryID){
         super(treasuryID);
-        appendChange(new TreasuryCreated(name, treasurer)).apply();
+     //   appendChange(new TreasuryCreated(name)).apply();
+        subscribe(new TreasuryChange(this));
     }
 
     public static Treasury from(TreasuryID treasuryID, List<DomainEvent> domainEvents){
@@ -83,4 +85,7 @@ public class Treasury extends AggregateEvent<TreasuryID> {
         appendChange(new TreasurerUpdated(treasurerID, name, address, phone, ci)).apply();
     }
 
+    public void TreasuryCreated(Name name) {
+        appendChange(new TreasuryCreated(name)).apply();
+    }
 }

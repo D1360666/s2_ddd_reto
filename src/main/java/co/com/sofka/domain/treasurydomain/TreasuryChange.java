@@ -13,10 +13,7 @@ import java.util.HashSet;
 public class TreasuryChange extends EventChange {
     public TreasuryChange(Treasury treasury){
         apply((TreasuryCreated event)->{
-            treasury.treasurer = event.getTreasurer();
             treasury.name = event.getName();
-            treasury.AccoutList = new HashSet<>();
-            treasury.PlayerList = new HashSet<>();
         });
 
         apply((AccountAdded evt)->{

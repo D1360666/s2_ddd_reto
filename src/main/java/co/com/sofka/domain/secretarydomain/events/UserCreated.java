@@ -6,15 +6,15 @@ import co.com.sofka.domain.secretarydomain.values.Name;
 import co.com.sofka.domain.secretarydomain.values.Phone;
 import co.com.sofka.domain.secretarydomain.values.UserID;
 
-public class UserAdded extends DomainEvent {
-    private UserID userID;
-    private Name name;
-    private Address address;
-    private Phone phone;
+public class UserCreated extends DomainEvent {
 
-    public UserAdded(UserID userID, Name name, Address address, Phone phone){
-        super("sofka.domain.secretarydomain.useradded");
-        this.userID = userID;
+    private final Name name;
+    private final Address address;
+    private final Phone phone;
+
+    public UserCreated( Name name, Address address, Phone phone){
+        super("sofka.domain.secretarydomain.usercreated");
+
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -22,7 +22,7 @@ public class UserAdded extends DomainEvent {
     }
 
     public UserID getUserID() {
-        return userID;
+        return null;
     }
 
     public Name getName() {

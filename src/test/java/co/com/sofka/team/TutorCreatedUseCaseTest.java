@@ -1,4 +1,4 @@
-package co.com.sofka;
+package co.com.sofka.team;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;

@@ -7,21 +7,19 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Calendar extends Entity<CalendarID> {
-    private CalendarID calendarID;
-    private Description description;
-    private DateOfEvent dateOfEvent;
-    private Place place;
+    public static CalendarID calendarID;
+
+    public static Description description;
+    public static DateOfEvent dateOfEvent;
+    public static Place place;
 
     public Calendar(CalendarID entityId, Description description, DateOfEvent dateOfEvent, Place place) {
         super(entityId);
         this.description = description;
         this.dateOfEvent = dateOfEvent;
         this.place = place;
+        this.calendarID = entityId;
     }
-
-    public void updateDescription(Description description){this.description= Objects.requireNonNull(description);}
-    public void updateDateOfEvent(DateOfEvent dateOfEvent){this.dateOfEvent= Objects.requireNonNull(dateOfEvent);}
-    public void updatePlace(Place place){this.place= Objects.requireNonNull(place);}
 
     public Description description() {
         return description;
@@ -34,4 +32,5 @@ public class Calendar extends Entity<CalendarID> {
     public Place place() {
         return place;
     }
+    public CalendarID calendarID(){return calendarID;}
 }

@@ -1,28 +1,25 @@
 package co.com.sofka.domain.secretarydomain.commands;
 
+import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.secretarydomain.Secretary;
 import co.com.sofka.domain.secretarydomain.entity.Calendar;
-import co.com.sofka.domain.secretarydomain.values.CommunicationID;
-import co.com.sofka.domain.secretarydomain.values.DateOfCommunication;
-import co.com.sofka.domain.secretarydomain.values.Description;
-import co.com.sofka.domain.secretarydomain.values.SocialMedia;
+import co.com.sofka.domain.secretarydomain.values.*;
 
-import javax.sound.midi.Receiver;
 
-public class AddCommunication {
+public class CreateCommunication extends Command {
     private final CommunicationID communicationID;
     private final Description description;
     private final DateOfCommunication dateOfCommunication;
-    private final Calendar calendar;
-    private final SocialMedia socialMedia;
-    private final Receiver receiver;
 
-    public AddCommunication(CommunicationID communicationID, Description description, DateOfCommunication dateOfCommunication, Calendar calendar, SocialMedia socialMedia, Receiver receiver) {
+    private final SocialMedia socialMedia;
+    private final SecretaryID secretaryID;
+
+    public CreateCommunication(CommunicationID communicationID, Description description, DateOfCommunication dateOfCommunication, SocialMedia socialMedia, SecretaryID secretaryID) {
         this.communicationID = communicationID;
         this.description = description;
         this.dateOfCommunication = dateOfCommunication;
-        this.calendar = calendar;
         this.socialMedia = socialMedia;
-        this.receiver = receiver;
+        this.secretaryID = secretaryID;
     }
 
     public CommunicationID getCommunicationID() {
@@ -37,15 +34,11 @@ public class AddCommunication {
         return dateOfCommunication;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
-    }
-
     public SocialMedia getSocialMedia() {
         return socialMedia;
     }
 
-    public Receiver getReceiver() {
-        return receiver;
+    public SecretaryID getSecretaryID() {
+        return secretaryID;
     }
 }
